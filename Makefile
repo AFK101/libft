@@ -15,7 +15,7 @@ NAME=libft.a
 
 CC=gcc
 
-FLAGS= -Wall -Werror -Wextra -c
+FLAGS= -Wall -Werror -Wextra 
 
 INCLUDES= -I includes/
 
@@ -59,7 +59,7 @@ $(BIN_PATH)%.o : $(SRC_PATH)%.c
 		@$(CC) $(FLAGS) $(INCLUDES) -o $@ -c $<
 
 clean :
-		@rm -rf $(BIN)
+		@rm -rf $(BIN_PATH)
 		@echo "\033[31m[File .o deleted]\033[0m"
 
 fclean : clean

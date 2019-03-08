@@ -46,16 +46,17 @@ SRC_NAME =	ft_atoi.c		ft_bzero.c		ft_count_integer.c\
 BIN_PATH = bin/
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
-BIN = $(addprefix $(BIN_PATH), $(SRC_NAME:.c=.o))
+BIN = $(addprefix $(BIN_PATH),$(SRC_NAME:.c=.o))
 
 all : $(NAME)
 
 $(NAME): $(BIN_PATH) $(BIN)
-	@ar -rc $(NAME) $>
+	@ar -rc $(NAME) $(BIN)
+	@ranlib $(NAME)
 	@echo "\033[32m[Your Library is ready]\033[0m"
 		
 $(BIN_PATH)%.o : $(SRC_PATH)%.c
-		@$(CC) $(FLAGS) $(INCLUDES) -o $@ -c $<
+		@$(CC) $(FLAGS) $(INCLUDES) -o $@ -c $^
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
 clean :

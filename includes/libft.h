@@ -6,7 +6,7 @@
 /*   By: jucollet <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/03 16:51:43 by jucollet     #+#   ##    ##    #+#       */
-/*   Updated: 2018/12/12 21:20:28 by jucollet    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/03/24 06:39:12 by jucollet    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -86,6 +86,7 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_trimspace(char c);
 int					ft_isword(char c);
 int					ft_isntdelimiter(char c, char delimiter);
+int					ft_strrchr_index(const char *s, int c);
 size_t				ft_strlen(const char *str);
 size_t				ft_count_word(const char *s, char c);
 size_t				ft_count_integer(int n);
@@ -97,4 +98,5 @@ void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 t_list				*ft_lstnew(void const *content, size_t	content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstaddback(t_list **alst, t_list *list);
+void				ft_putnendl_fd(char const *s, size_t nb, int fd);
 #endif

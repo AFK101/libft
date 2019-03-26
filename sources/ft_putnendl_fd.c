@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strchr.c                                      .::    .:/ .      .::   */
+/*   ft_putnendl_fd.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: jucollet <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/10/15 18:57:02 by jucollet     #+#   ##    ##    #+#       */
-/*   Updated: 2019/03/20 16:47:37 by jucollet    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/03/24 00:29:19 by jucollet     #+#   ##    ##    #+#       */
+/*   Updated: 2019/03/24 00:34:04 by jucollet    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putnendl_fd(char const *s, size_t nb, int fd)
 {
-	if (!s || !c)
-		return (NULL);
-	while (*(char *)(s++) != (char)c)
-		if (!*(char *)s && c != 0)
-			return (NULL);
-	return ((char *)(s - 1));
+	if (!s || !nb)
+		return ;
+	while (*s && nb--)
+		ft_putchar_fd(*s++, fd);
+	ft_putchar('\n');
 }

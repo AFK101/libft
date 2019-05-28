@@ -20,5 +20,5 @@ size_t		ft_count_integer(int n)
 	counter = 0;
 	while ((n /= 10))
 		counter++;
-	return (counter);
+	return (counter + 1);
 }

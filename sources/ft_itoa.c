@@ -12,32 +12,26 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_itoa(int n)
 {
 	size_t		index;
-	size_t		sign;
-	char		*str;
+	char		  *str;
 
-	sign = 0;
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	index = ft_count_integer(n);
 	(n == 0) ? index = 1 : index;
-	if (n < 0)
-	{
-		n *= -1;
-		index++;
-		sign = 1;
-	}
-	if (!(str = ft_strnew(index)))
+	(n < 0) ? n *= -1 : 0;
+	(n < 0) ? index++ : 0;
+	if (!(str = ft_strnew(index + 1)))
 		return (NULL);
-	str[index] = '\0';
 	while (index)
 	{
 		str[--index] = (n % 10) + 48;
 		n /= 10;
 	}
-	(sign) ? *str = '-' : *str;
+	(n < 0) ? *str = '-' : *str;
 	return (str);
 }
